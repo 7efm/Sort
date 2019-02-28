@@ -29,29 +29,27 @@ public class Sorting
             }
         }
     }
-
+    
     public void inserstionSortIncreasing(){
-
-        int finalIndex = 1;
-        int largest;
+        int smallest;
         for(int i = 1; i < sortArray.length; i++){
             int comparingIndex = 0;
-            while(comparingIndex < finalIndex){
-                if(sortArray[i] < sortArray[comparingIndex]){
-                    
-                    System.out.println(sortArray[comparingIndex] + " is greater than " + sortArray[i] );
+            for(int j = 0; j < i; j++){
+                System.out.println(sortArray[i] + " is comparing to " + sortArray[j]);
+                if(sortArray[i] < sortArray[j]){
+                    smallest = sortArray[i];
+                    add(smallest,j);
                 }
-                
-                else{
-                    System.out.println(sortArray[comparingIndex] + " is less than " + sortArray[i] );
-                }
-
-                comparingIndex++;
             }
-            finalIndex++;
         }
     }
+    public void add(int num, int index){
 
+        for(int i = sortArray.length-1; i > index; i--){
+            sortArray[i] = sortArray[i-1];
+        }
+        sortArray[index] = num; 
+    }
     public void selectionSortIncreasing(){
         int finalIndex = sortArray.length-1;
         for(int j = 0; j < sortArray.length; j++){
@@ -70,4 +68,5 @@ public class Sorting
             finalIndex--;
         }
     }
+    
 }
